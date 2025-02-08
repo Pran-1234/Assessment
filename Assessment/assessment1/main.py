@@ -1,23 +1,25 @@
-from fruit_manager import Fruit_Manager
-from customer import Customer
-def main():
-    print("WELCOME TO THE FRUIT MARKET ")
-    print("1) Manager")
-    print("2) Customer")
-    
-    role=input("Select Your role:")
+# Import the necessary functions from the modules
+from fruit_manager import run_manager_module
+from customer import run_customer_module
 
-    if role =="1":
-        fruit_manager = Fruit_Manager()
-        fruit_manager.run1()
-    
-    elif role == "2":
-        customer=Customer()
-        customer.run2()
-    
-    else:
-        print("Invalid role selected")
-    
-main()
-               
-    
+def main():
+    """Main entry point for the Fruit Store Console Application."""
+    while True:
+        print("\n--Fruit Store Application--")
+        print("1. Manager Module")
+        print("2. Customer Module")
+        print("3. Exit")
+        choice = input("Select an option: ")
+
+        if choice == '1':
+            run_manager_module()  # Call the manager module function
+        elif choice == '2':
+            run_customer_module()  # Call the customer module function
+        elif choice == '3':
+            print("Exiting the application. Thank you!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
